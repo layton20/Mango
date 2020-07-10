@@ -4,7 +4,7 @@ Hi, this is a fun little practice project that I'm doing on-the-side. My goal is
 
 ## What's Mango
 
-Mango is an equipment inventory-management and recipe-tracking system designed catered for restaurants! This application will keep track of kitchen equipment, food stocks and food recipes.
+Mango is an equipment inventory-management and recipe-recording system designed catered for restaurants! This application will keep track of kitchen equipment, food stocks and food recipes.
 
 Tired of losing that recipe from 3 months back?
 - We'll keep ahold of your recipes
