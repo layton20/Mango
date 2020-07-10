@@ -17,4 +17,4 @@ In a rush to serve a customer a recipe that requires caviar only to find you've 
 
 ## Technologies
 
-This web application is built in ASP.NET Core (3.1) and styled via Bootstrap 6.
+This web application is built in ASP.NET Core (3.1) and styled via Bootstrap 4.5.
