@@ -1,6 +1,6 @@
 # Mango
 
-Hi, this is a fun little practice project that I'm doing on-the-side.
+Hi, this is a fun little practice project that I'm doing on-the-side. My goal is to build a project that will consume any random third party API(s), just for the experience :).
 
 ## What's Mango
 
