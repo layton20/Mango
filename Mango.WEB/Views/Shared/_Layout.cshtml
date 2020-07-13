@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Mango.WEB</title>
+    <partial name="Imports/Links/_External" />
+    <partial name="Imports/Links/_Internal" />
+</head>
+<body>
+    <partial name="Main/_Navigation"/>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <partial name="Main/_Footer" />
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
