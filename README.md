@@ -1,13 +1,13 @@
 # Mango
 
-Hi, this is a fun little practice project that I'm doing on-the-side.
+Hi, this is a fun little practice project that I'm doing on-the-side. My goal is to build a project that will consume any random third party API(s), just for the experience :smiley:
 
 ## What's Mango
 
-Mango is an equipment inventory management and recipe tracking system designed catered for restaurants! This application will keep track of kitchen equipment, food stocks and food recipes.
+Mango is an equipment inventory-management and recipe-recording system designed catered for restaurants! This application will keep track of kitchen equipment, food stocks and food recipes.
 
 Tired of losing that recipe from 3 months back?
-- We'll keep ahold of your recipes
+- We'll keep a hold of your recipes
 
 Can't remember if you've bought 50 golden-plated spatulas instead of 49
 - We'll track that for you too
