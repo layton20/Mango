@@ -14,17 +14,51 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\" />
+    <Folder Include="Areas\Booking\Controllers\" />
+    <Folder Include="Areas\Booking\Data\" />
+    <Folder Include="Areas\Booking\Models\" />
+    <Folder Include="Areas\Booking\Views\" />
+    <Folder Include="Areas\Note\Controllers\" />
+    <Folder Include="Areas\Note\Data\" />
+    <Folder Include="Areas\Note\Models\" />
+    <Folder Include="Areas\Note\Views\" />
+    <Folder Include="Areas\Stock\Controllers\" />
+    <Folder Include="Areas\Stock\Data\" />
+    <Folder Include="Areas\Stock\Models\" />
+    <Folder Include="Areas\Stock\Views\" />
     <Folder Include="Managers\" />
     <Folder Include="Clients\" />
     <Folder Include="Databases\" />
-    <Folder Include="NewFolder\" />
+    <Folder Include="Models\Booking\Request\" />
+    <Folder Include="Models\Booking\Response\" />
+    <Folder Include="Models\Note\Request\" />
+    <Folder Include="Models\Note\Response\" />
+    <Folder Include="Models\Stock\Request\" />
+    <Folder Include="Models\Stock\Response\" />
+    <Folder Include="Repositories\Booking\" />
+    <Folder Include="Repositories\Stock\" />
+    <Folder Include="Repositories\Note\" />
     <Folder Include="UI\Component\" />
+    <Folder Include="wwwroot\resource\data\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0-preview.6.20312.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-preview.6.20312.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0-preview.6.20312.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
   </ItemGroup>
 
 

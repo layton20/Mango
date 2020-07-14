@@ -14,19 +14,15 @@
                     <a class="nav-link font-weight-bold text-nowrap" href="#">Getting Started</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold text-nowrap" asp-area="" asp-controller="Home" asp-action="Privacy">Contact</a>
+                    <a class="nav-link font-weight-bold text-nowrap" asp-area="" asp-controller="Home" asp-action="Privacy">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold text-nowrap" asp-area="" asp-controller="Home" asp-action="Privacy">Blog</a>
+                    <a class="nav-link font-weight-bold text-nowrap" asp-area="" asp-controller="Home" asp-action="Privacy">Contact</a>
                 </li>
             </ul>
         </div>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link font-weight-bold text-nowrap" href="#">Login</a>
-                </li>
-            </ul>
+            <partial name="_LoginPartial" />
         </div>
     </div>
 </nav>
