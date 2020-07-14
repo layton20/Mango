@@ -8,13 +8,15 @@
     <partial name="Imports/Links/_Internal" />
 </head>
 <body>
-    <partial name="Main/_Navigation"/>
+    <partial name="Main/_Navigation" />
 
     <main role="main">
         @RenderBody()
     </main>
 
     <partial name="Main/_Footer" />
+    <partial name="Imports/Scripts/_External" />
+    <partial name="Imports/Scripts/_Internal" />
 
     @RenderSection("Scripts", required: false)
 </body>

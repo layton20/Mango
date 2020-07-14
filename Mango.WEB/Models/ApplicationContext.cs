@@ -1,12 +1,14 @@
 ﻿using Mango.WEB.Entities.Booking;
 using Mango.WEB.Entities.Note;
 using Mango.WEB.Entities.Stock;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mango.WEB.Models
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationContext(DbContextOptions options) : base(options)
         {
