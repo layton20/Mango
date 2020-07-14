@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Mango.WEB.Entities.Booking;
+using Mango.WEB.Entities.Note;
+using Mango.WEB.Entities.Stock;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 
 namespace Mango.WEB.Models
 {
@@ -13,9 +13,15 @@ namespace Mango.WEB.Models
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Filename=MyDatabase.db");
-        }
+        // Booking
+        public DbSet<BookingEntity> Bookings { get; set; }
+
+        // Stock
+        public DbSet<StockEntity> Stocks { get; set; }
+
+        // Note
+        public DbSet<BookEntity> Books { get; set; }
+        public DbSet<NoteEntity> Notes { get; set; }
+        public DbSet<BookNoteEntity> BookNotes { get; set; }
     }
 }
