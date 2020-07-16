@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mango.WEB.Interfaces.Managers.Stock;
+using Mango.WEB.Interfaces.Repositories.Stock;
+using Mango.WEB.Managers.Stock;
 using Mango.WEB.Models;
+using Mango.WEB.Repositories.Stock;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,10 +30,17 @@ namespace Mango.WEB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Storage
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationContext>();
+
+            // Managers
+            services.AddScoped<IStockManager, StockManager>();
+
+            // Repositories
+            services.AddScoped<IStockRepository, StockRepository>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
