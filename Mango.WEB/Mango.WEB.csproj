@@ -24,10 +24,7 @@
     <Folder Include="Areas\Note\Data\" />
     <Folder Include="Areas\Note\Models\" />
     <Folder Include="Areas\Note\Views\" />
-    <Folder Include="Areas\Stock\Controllers\" />
     <Folder Include="Areas\Stock\Data\" />
-    <Folder Include="Areas\Stock\Models\" />
-    <Folder Include="Areas\Stock\Views\" />
     <Folder Include="Interfaces\Managers\Booking\" />
     <Folder Include="Interfaces\Managers\Note\" />
     <Folder Include="Interfaces\Repositories\Booking\" />

@@ -4,6 +4,7 @@ using Mango.WEB.Interfaces.Managers.Stock;
 using Mango.WEB.Interfaces.Repositories.Stock;
 using Mango.WEB.Models.Base.Request;
 using Mango.WEB.Models.Base.Response;
+using Mango.WEB.Models.Enums;
 using Mango.WEB.Models.Stock.Request;
 using Mango.WEB.Models.Stock.Response;
 using System;
@@ -49,7 +50,7 @@ namespace Mango.WEB.Managers.Stock
 
         public async Task<StocksResponse> GetAsync(GetStocksRequest request)
         {
-            IList<StockEntity> _Entities = await __StockRepository.GetAsync(request.StockType);
+            IList<StockEntity> _Entities = await __StockRepository.GetAsync(request?.StockType ?? StockType.Unknown);
 
             return new StocksResponse
             {

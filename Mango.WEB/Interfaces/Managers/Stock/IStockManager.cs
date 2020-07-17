@@ -10,7 +10,7 @@ namespace Mango.WEB.Interfaces.Managers.Stock
     {
         Task<StockResponse> CreateAsync(CreateStockRequest request);
         Task<BaseResponse> DeleteAsync(UIDRequest request);
-        Task<StocksResponse> GetAsync(GetStocksRequest request);
+        Task<StocksResponse> GetAsync(GetStocksRequest request = null);
         Task<StockResponse> GetAsync(UIDRequest request);
         Task<BaseResponse> UpdateAsync(UpdateStockRequest request);
     }
