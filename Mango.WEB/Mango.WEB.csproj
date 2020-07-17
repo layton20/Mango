@@ -14,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Adapters\Booking\" />
+    <Folder Include="Adapters\Note\" />
     <Folder Include="Areas\Booking\Controllers\" />
     <Folder Include="Areas\Booking\Data\" />
     <Folder Include="Areas\Booking\Models\" />
@@ -22,21 +24,21 @@
     <Folder Include="Areas\Note\Data\" />
     <Folder Include="Areas\Note\Models\" />
     <Folder Include="Areas\Note\Views\" />
-    <Folder Include="Areas\Stock\Controllers\" />
     <Folder Include="Areas\Stock\Data\" />
-    <Folder Include="Areas\Stock\Models\" />
-    <Folder Include="Areas\Stock\Views\" />
-    <Folder Include="Managers\" />
+    <Folder Include="Interfaces\Managers\Booking\" />
+    <Folder Include="Interfaces\Managers\Note\" />
+    <Folder Include="Interfaces\Repositories\Booking\" />
+    <Folder Include="Interfaces\Repositories\Note\" />
     <Folder Include="Clients\" />
     <Folder Include="Databases\" />
+    <Folder Include="Managers\Booking\" />
+    <Folder Include="Managers\Note\" />
     <Folder Include="Models\Booking\Request\" />
     <Folder Include="Models\Booking\Response\" />
     <Folder Include="Models\Note\Request\" />
     <Folder Include="Models\Note\Response\" />
-    <Folder Include="Models\Stock\Request\" />
-    <Folder Include="Models\Stock\Response\" />
+    <Folder Include="Helpers\" />
     <Folder Include="Repositories\Booking\" />
-    <Folder Include="Repositories\Stock\" />
     <Folder Include="Repositories\Note\" />
     <Folder Include="UI\Component\" />
     <Folder Include="wwwroot\resource\data\" />

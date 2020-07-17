@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Mango.WEB.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Mango.WEB.Models;
+using System.Diagnostics;
 
 namespace Mango.WEB.Controllers
 {
@@ -19,6 +15,16 @@ namespace Mango.WEB.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult GDPA()
         {
             return View();
         }
