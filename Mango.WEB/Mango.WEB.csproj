@@ -16,6 +16,7 @@
   <ItemGroup>
     <Folder Include="Adapters\Booking\" />
     <Folder Include="Adapters\Note\" />
+    <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Booking\Controllers\" />
     <Folder Include="Areas\Booking\Data\" />
     <Folder Include="Areas\Booking\Models\" />
