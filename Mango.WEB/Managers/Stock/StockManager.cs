@@ -1,5 +1,6 @@
 ﻿using Mango.WEB.Adapters.Stock;
 using Mango.WEB.Entities.Stock;
+using Mango.WEB.Helpers;
 using Mango.WEB.Interfaces.Managers.Stock;
 using Mango.WEB.Interfaces.Repositories.Stock;
 using Mango.WEB.Models.Base.Request;
@@ -17,7 +18,7 @@ namespace Mango.WEB.Managers.Stock
     public class StockManager : IStockManager
     {
         private readonly IStockRepository __StockRepository;
-        private const string ERROR_PREFIX = "Unable to";
+        private const string ENTITY_NAME = "Stock";
 
         public StockManager(IStockRepository stockRepository)
         {
@@ -31,7 +32,7 @@ namespace Mango.WEB.Managers.Stock
             return _CreatedEntity.ToResponse() ?? new StockResponse
             {
                 Success = false,
-                ErrorMessage = $"{ERROR_PREFIX} create Stock."
+                ErrorMessage = $"{GlobalConstants.ERROR_ACTION_PREFIX} create {ENTITY_NAME}."
             };
         }
 
@@ -42,7 +43,7 @@ namespace Mango.WEB.Managers.Stock
             if (request.UID == Guid.Empty || !await __StockRepository.DeleteAsync(request.UID))
             {
                 _Response.Success = false;
-                _Response.ErrorMessage = $"{ERROR_PREFIX} delete Stock.";
+                _Response.ErrorMessage = $"{GlobalConstants.ERROR_ACTION_PREFIX} delete {ENTITY_NAME}.";
             }
 
             return _Response;
@@ -65,7 +66,7 @@ namespace Mango.WEB.Managers.Stock
             if (request.UID == Guid.Empty)
             {
                 _Response.Success = false;
-                _Response.ErrorMessage = $"{ERROR_PREFIX} retrieve Stock.";
+                _Response.ErrorMessage = $"{GlobalConstants.ERROR_ACTION_PREFIX} retrieve {ENTITY_NAME}.";
             }
 
             StockEntity _StockEntity = await __StockRepository.GetAsync(request.UID);
@@ -73,7 +74,7 @@ namespace Mango.WEB.Managers.Stock
             if (_StockEntity == null)
             {
                 _Response.Success = false;
-                _Response.ErrorMessage = $"{ERROR_PREFIX} retrieve Stock.";
+                _Response.ErrorMessage = $"{GlobalConstants.ERROR_ACTION_PREFIX} retrieve {ENTITY_NAME}.";
             }
 
             return _StockEntity.ToResponse() ?? _Response;
@@ -85,8 +86,8 @@ namespace Mango.WEB.Managers.Stock
 
             if (request.UID == Guid.Empty || !await __StockRepository.UpdateAsync(request.UID, request.ToEntity()))
             {
-                _Response.Success = false; 
-                _Response.ErrorMessage = $"{ERROR_PREFIX} retrieve Stock.";
+                _Response.Success = false;
+                _Response.ErrorMessage = $"{GlobalConstants.ERROR_ACTION_PREFIX} retrieve {ENTITY_NAME}.";
             }
 
             return _Response;

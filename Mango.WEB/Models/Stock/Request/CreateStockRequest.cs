@@ -1,4 +1,5 @@
-﻿using Mango.WEB.Models.Enums;
+﻿using Mango.WEB.Models.Base.Request;
+using Mango.WEB.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace Mango.WEB.Models.Stock.Request

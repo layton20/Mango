@@ -3,7 +3,6 @@ using Mango.WEB.Entities.Note;
 using Mango.WEB.Entities.Stock;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mango.WEB.Models
@@ -25,5 +24,6 @@ namespace Mango.WEB.Models
         public DbSet<BookEntity> Books { get; set; }
         public DbSet<NoteEntity> Notes { get; set; }
         public DbSet<BookNoteEntity> BookNotes { get; set; }
+        public DbSet<DietEntity> Diets { get; set; }
     }
 }
