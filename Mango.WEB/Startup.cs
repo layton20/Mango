@@ -2,10 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mango.WEB.Interfaces.Managers.Note;
 using Mango.WEB.Interfaces.Managers.Stock;
+using Mango.WEB.Interfaces.Repositories.Note;
 using Mango.WEB.Interfaces.Repositories.Stock;
+using Mango.WEB.Managers.Note;
 using Mango.WEB.Managers.Stock;
 using Mango.WEB.Models;
+using Mango.WEB.Repositories.Note;
 using Mango.WEB.Repositories.Stock;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,9 +42,13 @@ namespace Mango.WEB
 
             // Managers
             services.AddScoped<IStockManager, StockManager>();
+            services.AddScoped<INoteManager, NoteManager>();
+            services.AddScoped<IDietManager, DietManager>();
 
             // Repositories
             services.AddScoped<IStockRepository, StockRepository>();
+            services.AddScoped<INoteRepository, NoteRepository>();
+            services.AddScoped<IDietRepository, DietRepository>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
