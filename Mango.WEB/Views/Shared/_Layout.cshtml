@@ -14,7 +14,22 @@
         @RenderBody()
     </main>
 
+    <div id="modalRoot" class="modal fade in" tabindex="-1" role="dialog">
+        <div id="modalDialog" class="modal-dialog" role="document">
+        </div>
+    </div>
+
+    @if (ViewData["SuccessMessage"] != null)
+    {
+        <partial name="_Components/_SuccessToast" model="@ViewData["SuccessMessage"].ToString()" />
+    }
+    @if (ViewData["ErrorMessage"] != null)
+    {
+        <partial name="_Components/_ErrorToast" model="@ViewData["ErrorMessage"].ToString()" />
+    }
+
     <partial name="Main/_Footer" />
+
     <partial name="Imports/Scripts/_External" />
     <partial name="Imports/Scripts/_Internal" />
 

@@ -5,6 +5,6 @@ namespace Mango.WEB.Areas.Stock.Models.Stock
 {
     public class IndexViewModel
     {
-        public IList<StockEntity> Stocks { get; set; }
+        public IList<LocationViewModel> Kitchens { get; set; }
     }
 }

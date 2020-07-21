@@ -6,8 +6,8 @@
 }
 
 <div class="container-fluid pt-3 pb-1">
-    <div class="jumbotron text-center" style="background-color: #faaf52">
-        <h1 class="text-dark display-4 font-weight-bold">@ViewData["Title"].</h1>
+    <div class="jumbotron text-center text-dark" style="background-color: #faaf52">
+        <h1 class="display-4 font-weight-bold">@ViewData["Title"].</h1>
         <p class="lead font-weight-normal">Start by selecting a service.</p>
     </div>
 
@@ -21,7 +21,7 @@
                     <p class="badge badge-success">New</p>
                     <h5 class="card-title text-dark">Stocks+</h5>
                     <p class="card-text">Manage your stock of foods and equipment. Keep track of what goes in and out of your kitchen.</p>
-                    <a href="#" class="btn btn-success mx-1">Open Service</a>
+                    <a class="btn btn-success mx-1" asp-area="Stock" asp-controller="Stock" asp-action="Index">Open Service</a>
                     <a href="#" class="btn btn-outline-success mx-1">Full Guide</a>
                 </div>
             </div>
@@ -104,11 +104,16 @@
         </div>
     </div>
 
-    <div class="jumbotron text-center text-white px-5" style="background-color: #b54848">
-        <h4 class="font-weight-normal display">"Mango helped me to kickstart my career off and allowed me to focus more on my cooking than management. I can store all of my recipes and notes in one place and start my own dessert business while doing so at the same time. Thank you Mango!"</h4>
+    <div class="jumbotron text-center text-dark px-5" style="background-color: #a8a8a8">
+        <h4 class="font-weight-normal display">"Mango helped me to kickstart my career off and allowed me to focus more on my cooking than management. I can store all of my recipes and notes in one place and start my own scooby snack business while doing so at the same time."</h4>
         <p class="lead font-weight-light">- SCOOBY DOO, MYSTERY INCORPORATED MASCOT</p>
-
-        <h4 class="font-weight-normal display">"I am finally a baker."</h4>
-        <p class="lead font-weight-light">- PANTHEON, RIPPED 8-PACK WAR GOD, LEAGUE OF LEGENDS</p>
+        <div class="d-flex">
+            <p class="m-auto">
+                @for (int i = 0; i < 5; i++)
+                {
+                    <i class="fas fa-star mx-1" style="font-size: 1.5em"></i>
+                }
+            </p>
+        </div>
     </div>
 </div>
