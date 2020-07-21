@@ -3,8 +3,7 @@
 Hi, this is a fun little practice project that I'm doing on-the-side. My goal is to build a project that will consume any random third party API(s), just for the experience :smiley:
 
 ## Contributors
-Johnny Le
-Miguel Abaquin
+Johnny Le, Miguel Abaquin
 
 ## What's Mango
 
