@@ -9,7 +9,7 @@ Mango is an equipment inventory-management and recipe-recording system designed 
 Tired of losing that recipe from 3 months back?
 - We'll keep a hold of your recipes
 
-Can't remember if you've bought 50 golden-plated spatulas instead of 49
+Can't remember if you've bought 50 gold-plated gucci spatulas instead of 49
 - We'll track that for you too
 
 In a rush to serve a customer a recipe that requires caviar only to find you've forgotten buy some since last week?
