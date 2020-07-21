@@ -2,6 +2,10 @@
 
 Hi, this is a fun little practice project that I'm doing on-the-side. My goal is to build a project that will consume any random third party API(s), just for the experience :smiley:
 
+## Contributors
+Johnny Le
+Miguel Abaquin
+
 ## What's Mango
 
 Mango is an equipment inventory-management and recipe-recording system designed catered for restaurants! This application will keep track of kitchen equipment, food stocks and food recipes.
