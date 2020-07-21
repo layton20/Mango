@@ -16,7 +16,10 @@ Can't remember if you've bought 50 gold-plated gucci spatulas instead of 49
 - We'll track that for you too
 
 In a rush to serve a customer a recipe that requires caviar only to find you've forgotten buy some since last week?
-- No problemo, we'll email/text you of any food shortages that needs to be bought before it's too late also
+- No problemo, we'll email/text you of any food shortages that needs to be bought before it's too late
+
+Got a killer recipe that you want to share and sell?
+- Sell your tastiest recipes through Mango to other users and make money!
 
 ## Technologies
 
