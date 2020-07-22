@@ -57,7 +57,7 @@ namespace Mango.WEB.Repositories.Stock
 
         public async Task<IList<LocationEntity>> GetByUserAsync(Guid userUID)
         {
-            if (userUID != Guid.Empty)
+            if (userUID == Guid.Empty)
             {
                 return await __Context.Locations?.ToListAsync() ?? Enumerable.Empty<LocationEntity>().ToList();
             }

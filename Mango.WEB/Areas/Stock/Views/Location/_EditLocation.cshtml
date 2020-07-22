@@ -1,4 +1,4 @@
-﻿@model Mango.WEB.Areas.Stock.Models.Location.CreateViewModel 
+﻿@model Mango.WEB.Areas.Stock.Models.Location.EditViewModel
 
 <div class="modal-content">
     <div class="modal-header">
@@ -8,13 +8,11 @@
         </button>
     </div>
     <div class="modal-body">
-        <form id="formCreateLocation" asp-area="Stock" asp-controller="Location" asp-action="Create">
-            <div asp-validation-summary="All" class="text-danger"></div>
-
+        <form asp-area="Stock" asp-controller="Location" asp-action="Create">
             <input type="hidden" asp-for="UserUID" />
             <div class="form-group">
                 <label asp-for="Name"></label>
-                <input asp-for="Name" type="text" class="form-control" aria-describedby="nameHelp" placeholder="Enter Kitchen Name">
+                <input asp-for="Name" type="text" class="form-control" aria-describedby="nameHelp" placeholder="Enter Kitchen Name" required>
                 <small id="nameHelp" class="form-text text-muted">This is the name of the space you can assign your stocks to.</small>
             </div>
             <div class="form-group">

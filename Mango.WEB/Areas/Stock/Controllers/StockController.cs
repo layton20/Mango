@@ -25,8 +25,13 @@ namespace Mango.WEB.Areas.Stock.Controllers
             __LocationManager = locationManager ?? throw new ArgumentNullException(nameof(locationManager));
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string errorMessage = "")
         {
+            if (!string.IsNullOrWhiteSpace(errorMessage))
+            {
+                ViewData["ErrorMessage"] = errorMessage;
+            }
+
             LocationsResponse _Response = new LocationsResponse();
 
             string _UserIDString = __UserManager.GetUserId(User);

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mango.WEB.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20200721165415_Added-Stock-Location-Table")]
-    partial class AddedStockLocationTable
+    [Migration("20200722083021_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -201,8 +201,8 @@ namespace Mango.WEB.Migrations
                     b.Property<Guid>("UID")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserID")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("UserUID")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 

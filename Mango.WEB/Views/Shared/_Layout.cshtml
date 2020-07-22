@@ -21,11 +21,11 @@
 
     @if (ViewData["SuccessMessage"] != null)
     {
-        <partial name="_Components/_SuccessToast" model="@ViewData["SuccessMessage"].ToString()" />
+        <partial name="Components/_SuccessToast" model="@ViewData["SuccessMessage"].ToString()" />
     }
     @if (ViewData["ErrorMessage"] != null)
     {
-        <partial name="_Components/_ErrorToast" model="@ViewData["ErrorMessage"].ToString()" />
+        <partial name="Components/_ErrorToast" model="@ViewData["ErrorMessage"].ToString()" />
     }
 
     <partial name="Main/_Footer" />

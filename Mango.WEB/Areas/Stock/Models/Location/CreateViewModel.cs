@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mango.WEB.Areas.Stock.Models.Location
 {
     public class CreateViewModel
     {
         [Required]
-        public int UserID { get; set; }
+        public Guid UserUID { get; set; }
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }

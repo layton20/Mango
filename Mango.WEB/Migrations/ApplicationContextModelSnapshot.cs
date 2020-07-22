@@ -199,8 +199,8 @@ namespace Mango.WEB.Migrations
                     b.Property<Guid>("UID")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserID")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("UserUID")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 

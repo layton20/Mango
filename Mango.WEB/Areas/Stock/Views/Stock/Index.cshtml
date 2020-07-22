@@ -12,37 +12,53 @@
     </div>
 
     <div class="jumbotron bg-light pt-4" style="background-color: #2479a6">
-        <h3>My Kitchens</h3>
-        <div id="kitchens">
+        <div class="d-flex">
+            <h3 class="mr-2">My Kitchens</h3>
+            @if (Model.Kitchens != null)
+            {
+                <h3>(@Model.Kitchens.Count)</h3>
+            }
+        </div>
+
+        <div id="kitchens" class="my-2">
             @if (Model.Kitchens != null && Model.Kitchens.Count > 0)
             {
-                <div class="d-flex">
+                <div class="d-flex align-items-stretch">
                     @foreach (var kitchen in Model.Kitchens)
                     {
-                        <div class="card">
+                        <div class="card rounded-0 mr-3">
                             <div class="card-body">
-                                <h5 class="card-title">@(!string.IsNullOrWhiteSpace(kitchen.Name) ? kitchen.Name : "Unnamed kitched")</h5>
-                                <p class="card-text">@(!string.IsNullOrWhiteSpace(kitchen.Description) ? kitchen.Description : "No description")</p>
-
+                                <h5 class="card-title text-center">@(!string.IsNullOrWhiteSpace(kitchen.Name) ? kitchen.Name : "Unnamed kitched")</h5>
+                                <p class="card-text text-center">@(!string.IsNullOrWhiteSpace(kitchen.Description) ? kitchen.Description : "No description")</p>
+                                <hr />
                                 @if (!string.IsNullOrWhiteSpace(kitchen.Floor))
                                 {
-                                    <p class="card-text"><strong>Floor:</strong>@kitchen.Floor</p>
+                                    <p class="card-text"><strong>Floor: </strong>@kitchen.Floor</p>
                                 }
 
                                 @if (!string.IsNullOrWhiteSpace(kitchen.Address))
                                 {
-                                    <p class="card-text"><strong>Address:</strong>@kitchen.Address</p>
+                                    <p class="card-text"><strong>Address: </strong>@kitchen.Address</p>
                                 }
 
-                                <a href="#" class="btn btn-success">Check Stocks</a>
+                                <div class="d-flex">
+                                    <a href="#" class="editStocks btn btn-success mr-2">Edit Kitchen Stocks</a>
+                                    <a href="#" class="editLocation btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Edit kitchen details"><i class="fas fa-edit"></i></a>
+                                </div>
                             </div>
                         </div>
                     }
+
+                    <div class="card rounded-0" style="width: 180px;">
+                        <div class="card-header h-100 d-flex justify-content-center align-items-center">
+                            <a href="#" class="createLocation" data-url='@Url.Action("CreateModal", "Location", new { Area = "Stock" })'><i class="fas fa-plus-square fa-3x"></i></a>
+                        </div>
+                    </div>
                 </div>
             }
             else
             {
-                <p class="lead">You haven't created any kitchen yet. Create one <a id="createLocation" class="lead" href="#" data-url='@Url.Action("CreateModal", "Location", new { Area = "Stock" })'>here</a>.</p>
+                <p class="lead">You haven't created any kitchen yet. Create one <a class="createLocation lead" href="#" data-url='@Url.Action("CreateModal", "Location", new { Area = "Stock" })'>here</a>.</p>
             }
         </div>
     </div>
@@ -57,7 +73,8 @@
         <script src="~/js/Areas/Stocks/index.min.js"></script>
     </environment>
 
-<script>
-    $('.toast').toast("show");
-</script>
+    <script>
+        $.validator.unobtrusive.parse(document);
+        $('.toast').toast("show");
+    </script>
 }

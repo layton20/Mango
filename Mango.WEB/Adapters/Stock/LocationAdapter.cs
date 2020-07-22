@@ -34,7 +34,8 @@ namespace Mango.WEB.Adapters.Stock
                 Name = request.Name,
                 Description = request.Description,
                 Floor = request.Floor,
-                Address = request.Address
+                Address = request.Address,
+                UserUID = request.UserUID
             };
         }
 
@@ -61,7 +62,8 @@ namespace Mango.WEB.Adapters.Stock
                 Name = model.Name,
                 Description = model.Description,
                 Floor = model.Floor,
-                Address = model.Address
+                Address = model.Address,
+                UserUID = model.UserUID
             };
         }
 
