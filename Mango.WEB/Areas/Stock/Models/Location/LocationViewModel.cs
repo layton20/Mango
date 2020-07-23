@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mango.WEB.Areas.Stock.Models.Stock
+namespace Mango.WEB.Areas.Stock.Models.Location
 {
     public class LocationViewModel
     {

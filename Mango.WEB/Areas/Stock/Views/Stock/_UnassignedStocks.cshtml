@@ -3,9 +3,19 @@
 <div class="jumbotron bg-light pt-4" style="background-color: #2479a6">
     <div class="d-flex">
         <h3 class="mr-2">My Unassigned Stocks <i id="tooltipUnassignedStocks" class="fas fa-question-circle text-muted" data-toggle="tooltip" data-placement="bottom" title="The list of stocks that have not been assigned to a kitchen yet."></i></h3>
-        @if (Model.Stocks != null)
-        {
-            <h3>(@Model.Stocks.Count)</h3>
-        }
+    </div>
+    @if (Model.Stocks != null)
+    {
+        <h3>(@Model.Stocks.Count)</h3>
+    }
+    else
+    {
+        <p class="lead">You have no unassigned stocks.</p>
+    }
+
+    <div id="unassignedStocks" class="my-2">
+        <a class="createLocation add add--interactive border card rounded-0 mb-3 d-flex justify-content-center align-items-center add add--interactive" data-url='@Url.Action("CreateModal", "Stock", new { Area = "Stock" })' style="width: 180px; min-height: 180px">
+            <p href="#" class="add__item"><i class="fas fa-plus-square fa-3x"></i></p>
+        </a>
     </div>
 </div>

@@ -9,9 +9,9 @@ namespace Mango.WEB.Interfaces.Repositories.Stock
     public interface IStockRepository
     {
         Task<StockEntity> CreateAsync(StockEntity stock);
-        Task<bool> DeleteAsync(Guid stockUID);
+        Task<bool> DeleteAsync(Guid stockUID, Guid loggedInUserUID);
         Task<IList<StockEntity>> GetAsync(StockType filter = StockType.Unknown);
         Task<StockEntity> GetAsync(Guid stockUID);
-        Task<bool> UpdateAsync(Guid stockUID, StockEntity updatedStock);
+        Task<bool> UpdateAsync(Guid stockUID, StockEntity updatedStock, Guid loggedInUserUID);
     }
 }

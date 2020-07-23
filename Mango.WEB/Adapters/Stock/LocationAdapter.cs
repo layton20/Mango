@@ -1,7 +1,5 @@
 ﻿using Mango.WEB.Areas.Stock.Models.Location;
-using Mango.WEB.Areas.Stock.Models.Stock;
 using Mango.WEB.Entities.Stock;
-using Mango.WEB.Models.Base.Request;
 using Mango.WEB.Models.Stock.Request;
 using Mango.WEB.Models.Stock.Response;
 using System;
@@ -60,7 +58,7 @@ namespace Mango.WEB.Adapters.Stock
             return entities != null && entities.Count > 0 ? entities.Select(ToResponse) : Enumerable.Empty<LocationResponse>();
         }
 
-        internal static CreateLocationRequest ToRequest(this CreateViewModel model)
+        internal static CreateLocationRequest ToRequest(this Areas.Stock.Models.Location.CreateViewModel model)
         {
             return model == null ? null : new CreateLocationRequest
             {

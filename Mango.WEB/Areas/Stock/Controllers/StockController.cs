@@ -1,4 +1,5 @@
 ﻿using Mango.WEB.Adapters.Stock;
+using Mango.WEB.Areas.Stock.Models.Location;
 using Mango.WEB.Areas.Stock.Models.Stock;
 using Mango.WEB.Interfaces.Managers.Stock;
 using Mango.WEB.Models.Stock.Request;
@@ -53,7 +54,7 @@ namespace Mango.WEB.Areas.Stock.Controllers
             return View(_ViewModel);
         }
 
-        public IActionResult Create()
+        public IActionResult CreateModal()
         {
             return View();
         }

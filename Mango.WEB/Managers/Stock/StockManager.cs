@@ -36,11 +36,11 @@ namespace Mango.WEB.Managers.Stock
             };
         }
 
-        public async Task<BaseResponse> DeleteAsync(UIDRequest request)
+        public async Task<BaseResponse> DeleteAsync(UserUIDAndUIDRequest request)
         {
             BaseResponse _Response = new BaseResponse();
 
-            if (request.UID == Guid.Empty || !await __StockRepository.DeleteAsync(request.UID))
+            if (request.UID == Guid.Empty || !await __StockRepository.DeleteAsync(request.UID, request.UserUID))
             {
                 _Response.Success = false;
                 _Response.ErrorMessage = $"{GlobalConstants.ERROR_ACTION_PREFIX} delete {ENTITY_NAME}.";
@@ -84,7 +84,7 @@ namespace Mango.WEB.Managers.Stock
         {
             BaseResponse _Response = new BaseResponse();
 
-            if (request.UID == Guid.Empty || !await __StockRepository.UpdateAsync(request.UID, request.ToEntity()))
+            if (request.UID == Guid.Empty || !await __StockRepository.UpdateAsync(request.UID, request.ToEntity(), request.UserUID))
             {
                 _Response.Success = false;
                 _Response.ErrorMessage = $"{GlobalConstants.ERROR_ACTION_PREFIX} retrieve {ENTITY_NAME}.";
