@@ -1,0 +1,37 @@
+﻿@model Mango.WEB.Areas.Stock.Models.Location.DeleteViewModel
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">Delete Kitchen Space</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div>You are making an irreversible change to delete a kitchen space.</div>
+        <div>Deleting this kitchen space will unassign your stock items.</div>
+        <ul class="list-group rounded-0 mt-3">
+            <li class="list-group-item">Name: <span class="font-italic">@Model.Location.Name</span></li>
+            @if (!string.IsNullOrWhiteSpace(Model.Location.Description))
+            {
+                <li class="list-group-item">Description: <span class="font-italic">@Model.Location.Description</span></li>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Location.Floor))
+            {
+                <li class="list-group-item">Floor: <span class="font-italic">@Model.Location.Floor</span></li>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Location.Address))
+            {
+                <li class="list-group-item">Address: <span class="font-italic">@Model.Location.Address</span></li>
+            }
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <form id="formDeleteLocation" asp-area="Stock" asp-controller="Location" asp-action="Delete">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="Location.UID" />
+            <button type="submit" class="btn btn-danger">Yes, I want to delete the kitchen</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </form>
+    </div>
+</div>

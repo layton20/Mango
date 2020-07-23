@@ -8,9 +8,9 @@ namespace Mango.WEB.Interfaces.Repositories.Stock
     public interface ILocationRepository
     {
         Task<LocationEntity> CreateAsync(LocationEntity location);
-        Task<bool> DeleteAsync(Guid locationUID);
+        Task<bool> DeleteAsync(Guid locationUID, Guid loggedInUserUID);
         Task<LocationEntity> GetAsync(Guid locationUID);
         Task<IList<LocationEntity>> GetByUserAsync(Guid userUID);
-        Task<bool> UpdateAsync(LocationEntity updatedLocation);
+        Task<bool> UpdateAsync(LocationEntity updatedLocation, Guid loggedInUserUID);
     }
 }

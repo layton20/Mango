@@ -6,7 +6,7 @@ namespace Mango.WEB.Areas.Stock.Models.Location
     public class EditViewModel
     {
         [Required]
-        public Guid UserUID { get; set; }
+        public Guid LocationUID { get; set; }
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }

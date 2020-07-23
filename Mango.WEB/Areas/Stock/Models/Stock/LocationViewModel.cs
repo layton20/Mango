@@ -9,5 +9,6 @@ namespace Mango.WEB.Areas.Stock.Models.Stock
         public string Description { get; set; }
         public string Floor { get; set; }
         public string Address { get; set; }
+        public Guid UserUID { get; set; }
     }
 }

@@ -1,0 +1,11 @@
+﻿@model Mango.WEB.Areas.Stock.Models.Stock.UnassignedStockViewModel
+
+<div class="jumbotron bg-light pt-4" style="background-color: #2479a6">
+    <div class="d-flex">
+        <h3 class="mr-2">My Unassigned Stocks <i id="tooltipUnassignedStocks" class="fas fa-question-circle text-muted" data-toggle="tooltip" data-placement="bottom" title="The list of stocks that have not been assigned to a kitchen yet."></i></h3>
+        @if (Model.Stocks != null)
+        {
+            <h3>(@Model.Stocks.Count)</h3>
+        }
+    </div>
+</div>

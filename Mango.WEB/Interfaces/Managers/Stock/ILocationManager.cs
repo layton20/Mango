@@ -9,7 +9,7 @@ namespace Mango.WEB.Interfaces.Managers.Stock
     public interface ILocationManager
     {
         Task<LocationResponse> CreateAsync(CreateLocationRequest request);
-        Task<BaseResponse> DeleteAsync(UIDRequest request);
+        Task<BaseResponse> DeleteAsync(UserUIDAndUIDRequest request);
         Task<LocationResponse> GetAsync(UIDRequest request);
         Task<LocationsResponse> GetByUserAsync(GetLocationsByUserRequest request);
         Task<BaseResponse> UpdateAsync(UpdateLocationRequest request);

@@ -25,11 +25,15 @@ namespace Mango.WEB.Areas.Stock.Controllers
             __LocationManager = locationManager ?? throw new ArgumentNullException(nameof(locationManager));
         }
 
-        public async Task<IActionResult> Index(string errorMessage = "")
+        public async Task<IActionResult> Index(string errorMessage = "", string successMessage = "")
         {
             if (!string.IsNullOrWhiteSpace(errorMessage))
             {
                 ViewData["ErrorMessage"] = errorMessage;
+            }
+            if (!string.IsNullOrWhiteSpace(successMessage))
+            {
+                ViewData["SuccessMessage"] = successMessage;
             }
 
             LocationsResponse _Response = new LocationsResponse();
@@ -42,7 +46,8 @@ namespace Mango.WEB.Areas.Stock.Controllers
 
             IndexViewModel _ViewModel = new IndexViewModel
             {
-                Kitchens = _Response?.Locations?.ToViewModel().ToList() ?? Enumerable.Empty<LocationViewModel>().ToList()
+                Kitchens = _Response?.Locations?.ToViewModel().ToList() ?? Enumerable.Empty<LocationViewModel>().ToList(),
+                UnassignedStocks = new UnassignedStockViewModel()
             };
 
             return View(_ViewModel);

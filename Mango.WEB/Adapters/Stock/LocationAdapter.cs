@@ -1,8 +1,10 @@
 ﻿using Mango.WEB.Areas.Stock.Models.Location;
 using Mango.WEB.Areas.Stock.Models.Stock;
 using Mango.WEB.Entities.Stock;
+using Mango.WEB.Models.Base.Request;
 using Mango.WEB.Models.Stock.Request;
 using Mango.WEB.Models.Stock.Response;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +20,8 @@ namespace Mango.WEB.Adapters.Stock
                 Description = response.Description,
                 Address = response.Address,
                 Floor = response.Floor,
-                UID = response.UID
+                UID = response.UID,
+                UserUID = response.UserUID
             };
         }
 
@@ -43,10 +46,12 @@ namespace Mango.WEB.Adapters.Stock
         {
             return entity == null ? null : new LocationResponse
             {
+                UID = entity.UID,
                 Name = entity.Name,
                 Description = entity.Description,
                 Floor = entity.Floor,
-                Address = entity.Address
+                Address = entity.Address,
+                UserUID = entity.UserUID
             };
         }
 
@@ -71,11 +76,37 @@ namespace Mango.WEB.Adapters.Stock
         {
             return request == null ? null : new LocationEntity
             {
+                UID = request.UID,
                 Name = request.Name,
                 Description = request.Description,
                 Floor = request.Floor,
                 Address = request.Address,
                 UserUID = request.UserUID
+            };
+        }
+
+        internal static EditViewModel ToEditViewModel(this LocationResponse response)
+        {
+            return response == null ? null : new EditViewModel
+            {
+                LocationUID = response.UID,
+                Name = response.Name,
+                Description = response.Description,
+                Floor = response.Floor,
+                Address = response.Address
+            };
+        }
+
+        internal static UpdateLocationRequest ToUpdateRequest(this EditViewModel model, Guid userUID)
+        {
+            return model == null ? null : new UpdateLocationRequest
+            {
+                UserUID = userUID,
+                UID = model.LocationUID,
+                Name = model.Name,
+                Description = model.Description,
+                Floor = model.Floor,
+                Address = model.Address,
             };
         }
     }

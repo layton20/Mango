@@ -31,7 +31,7 @@ namespace Mango.WEB.Repositories.Stock
             return _Added ? location : null;
         }
 
-        public async Task<bool> DeleteAsync(Guid locationUID)
+        public async Task<bool> DeleteAsync(Guid locationUID, Guid loggedInUserUID)
         {
             if (locationUID == Guid.Empty)
             {
@@ -40,7 +40,7 @@ namespace Mango.WEB.Repositories.Stock
 
             LocationEntity _Location = await __Context.Locations.FirstOrDefaultAsync(x => x.UID == locationUID);
 
-            if (_Location == null)
+            if (_Location == null || (_Location.UserUID != loggedInUserUID && loggedInUserUID != Guid.Empty))
             {
                 return false;
             }
@@ -65,7 +65,7 @@ namespace Mango.WEB.Repositories.Stock
             return await __Context.Locations?.Where(x => x.UserUID == userUID).ToListAsync() ?? Enumerable.Empty<LocationEntity>().ToList();
         }
 
-        public async Task<bool> UpdateAsync(LocationEntity updatedLocation)
+        public async Task<bool> UpdateAsync(LocationEntity updatedLocation, Guid loggedInUserUID)
         {
             if (updatedLocation.UID == Guid.Empty)
             {
@@ -74,12 +74,18 @@ namespace Mango.WEB.Repositories.Stock
 
             LocationEntity _LocationEntity = await __Context.Locations.FirstOrDefaultAsync(x => x.UID == updatedLocation.UID);
 
-            if (_LocationEntity == null)
+            // When loggedInUserUID = Guid.Empty then user has all access to modify and doesn't require comparison with location entity's UserUID field
+            if (_LocationEntity == null || (_LocationEntity.UserUID != loggedInUserUID && loggedInUserUID != Guid.Empty))
             {
                 return false;
             }
 
-            _LocationEntity = updatedLocation;
+            _LocationEntity.Name = updatedLocation.Name;
+            _LocationEntity.Description = updatedLocation.Description;
+            _LocationEntity.Floor = updatedLocation.Floor;
+            _LocationEntity.Address = updatedLocation.Address;
+            _LocationEntity.AmendedTimestamp = DateTime.Now;
+
             return await __Context.SaveChangesAsync() > 0;
         }
     }
