@@ -24,3 +24,7 @@ Got a killer recipe that you want to share and sell?
 ## Technologies
 
 This web application is built in ASP.NET Core (3.1) and styled via Bootstrap 4.5.
+
+## Javascript Libraries
+- [Datatables](https://datatables.net/)
+- [Editor JS](https://editorjs.io/)
