@@ -1,16 +1,17 @@
-﻿@using Mango.WEB.Models.Enums 
-@model Mango.WEB.Areas.Stock.Models.Stock.CreateViewModel
+﻿@using Mango.WEB.Models.Enums
+@model Mango.WEB.Areas.Stock.Models.Stock.EditViewModel
 
 <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title">Create Stock Item</h5>
+        <h5 class="modal-title">Edit Stock Item Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        <form id="formCreateLocation" asp-area="Stock" asp-controller="Stock" asp-action="Create">
+        <form id="formEditStock" asp-area="Stock" asp-controller="Stock" asp-action="Update">
             <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="StockUID"/>
             <div class="form-group">
                 <label asp-for="Name"></label>
                 <input asp-for="Name" type="text" class="form-control" aria-describedby="nameHelp" placeholder="Enter Stock Item Name" required>
@@ -22,14 +23,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Quantity"></label>
-                <input asp-for="Quantity" type="number" class="form-control" aria-describedby="quantity" placeholder="Enter Quantity" value="1" required>
+                <input asp-for="Quantity" type="number" class="form-control" aria-describedby="quantity" placeholder="Enter Quantity" required>
             </div>
             <div class="form-group">
                 <label asp-for="StockType"></label>
                 <select asp-for="StockType" asp-items="@Html.GetEnumSelectList<StockType>()" class="form-control"></select>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Create Stock Item</button>
+                <button type="submit" class="btn btn-primary">Update Details</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </div>
         </form>

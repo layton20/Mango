@@ -66,7 +66,7 @@ namespace Mango.WEB.Areas.Stock.Controllers
                 ViewData["SuccessMessage"] = $"{GlobalConstants.SUCCESS_ACTION_PREFIX} created {ENTITY_NAME}";
             }
 
-            return Json(0);
+            return Json(new { success = $"{GlobalConstants.SUCCESS_ACTION_PREFIX} added {ENTITY_NAME}" });
         }
 
         [HttpGet]
@@ -115,7 +115,7 @@ namespace Mango.WEB.Areas.Stock.Controllers
                 return await UpdateModal(viewModel.LocationUID);
             }
 
-            return Json(0);
+            return Json(new { success = $"{GlobalConstants.SUCCESS_ACTION_PREFIX} updated {ENTITY_NAME}" });
         }
 
         [HttpGet]

@@ -1,21 +1,56 @@
-﻿@model Mango.WEB.Areas.Stock.Models.Stock.UnassignedStockViewModel
+﻿@using Mango.WEB.Areas.Stock.Models.Stock
+@model IList<StockViewModel>
 
 <div class="jumbotron bg-light pt-4" style="background-color: #2479a6">
     <div class="d-flex">
         <h3 class="mr-2">My Unassigned Stocks <i id="tooltipUnassignedStocks" class="fas fa-question-circle text-muted" data-toggle="tooltip" data-placement="bottom" title="The list of stocks that have not been assigned to a kitchen yet."></i></h3>
     </div>
-    @if (Model.Stocks != null)
+    @if (Model != null && Model.Count > 0)
     {
-        <h3>(@Model.Stocks.Count)</h3>
+        <div class="my-2">
+            <a class="createStock btn btn-success text-white" data-url='@Url.Action("CreateModal", "Stock", new { Area = "Stock" })'>Create Stock</a>
+        </div>
     }
     else
     {
-        <p class="lead">You have no unassigned stocks.</p>
+        <p class="lead">You have no unassigned stocks. Create one <a class="createStock lead" href="#" data-url='@Url.Action("CreateModal", "Stock", new { Area = "Stock" })'>here</a>.</p>
     }
 
-    <div id="unassignedStocks" class="my-2">
-        <a class="createLocation add add--interactive border card rounded-0 mb-3 d-flex justify-content-center align-items-center add add--interactive" data-url='@Url.Action("CreateModal", "Stock", new { Area = "Stock" })' style="width: 180px; min-height: 180px">
-            <p href="#" class="add__item"><i class="fas fa-plus-square fa-3x"></i></p>
-        </a>
+    <div id="unassignedStocks" class="my-4">
+        <table id="tableUnassignedStocks" class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Stock Reference</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Stock Type</th>
+                    <th scope="col">Last Updated</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (StockViewModel unassignedStock in Model)
+                    {
+                        <tr>
+                            <th scope="col">@unassignedStock.UID</th>
+                            <td>@unassignedStock.Name</td>
+                            <td>@unassignedStock.Description</td>
+                            <td>@unassignedStock.Quantity</td>
+                            <td>@unassignedStock.StockType</td>
+                            <td>@unassignedStock.AmendedTimestamp</td>
+                            <td>
+                                <div class="d-flex mt-auto">
+                                    <a href="#" class="editStock mr-2" data-url='@Url.Action("UpdateModal", "Stock", new { Area = "Stock" })' data-stockuid="@unassignedStock.UID">Edit</a>
+                                    <a href="#" class="deleteStock" data-url='@Url.Action("DeleteModal", "Stock", new { Area = "Stock" })' data-stockuid="@unassignedStock.UID">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
     </div>
 </div>

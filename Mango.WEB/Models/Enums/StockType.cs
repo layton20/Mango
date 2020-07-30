@@ -2,7 +2,7 @@
 {
     public enum StockType : int
     {
-        Unknown = 0,
+        General = 0,
         Food,
         Equipment
     }

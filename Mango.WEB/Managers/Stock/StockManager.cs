@@ -51,7 +51,7 @@ namespace Mango.WEB.Managers.Stock
 
         public async Task<StocksResponse> GetAsync(GetStocksRequest request)
         {
-            IList<StockEntity> _Entities = await __StockRepository.GetAsync(request?.StockType ?? StockType.Unknown);
+            IList<StockEntity> _Entities = await __StockRepository.GetAsync(request?.StockType ?? StockType.General);
 
             return new StocksResponse
             {
@@ -78,6 +78,15 @@ namespace Mango.WEB.Managers.Stock
             }
 
             return _StockEntity.ToResponse() ?? _Response;
+        }
+        public async Task<StocksResponse> GetByUserAsync(GetStocksByUserRequest request)
+        {
+            IList<StockEntity> _Entities = await __StockRepository.GetByUserAsync(request.UserUID, request?.StockType ?? StockType.General);
+
+            return new StocksResponse
+            {
+                Stocks = _Entities.ToResponse().ToList()
+            };
         }
 
         public async Task<BaseResponse> UpdateAsync(UpdateStockRequest request)

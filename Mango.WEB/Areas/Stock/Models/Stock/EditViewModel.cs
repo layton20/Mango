@@ -1,27 +1,22 @@
-﻿using Mango.WEB.Models.Base.Request;
-using Mango.WEB.Models.Enums;
+﻿using Mango.WEB.Models.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Mango.WEB.Models.Stock.Request
+namespace Mango.WEB.Areas.Stock.Models.Stock
 {
-    public class CreateStockRequest
+    public class EditViewModel
     {
-        public CreateStockRequest()
-        {
-            Quantity = 0;
-        }
-
         [Required]
-        public Guid UserUID { get; set; }
+        public Guid StockUID { get; set; }
         [Required]
-        [MaxLength(50)]
         public string Name { get; set; }
         [Required]
         public string Description { get; set; }
         [Required]
+        [Range(0, int.MaxValue)]
         public int Quantity { get; set; }
         [Required]
+        [Display(Name = "Stock Type")]
         public StockType StockType { get; set; }
     }
 }
