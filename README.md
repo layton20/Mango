@@ -7,7 +7,7 @@ Johnny Le
 
 ## What's Mango
 
-Mango is an equipment inventory-management and recipe-recording system designed catered for restaurants! This application will keep track of kitchen equipment, food stocks and food recipes.
+Mango is an equipment inventory-management and recipe-recording system designed catered for restaurants, and food lovers! This application will keep track of kitchen equipment, food stocks and food recipes.
 
 Tired of losing that recipe from 3 months back?
 - We'll keep a hold of your recipes
