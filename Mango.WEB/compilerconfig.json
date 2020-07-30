@@ -2,5 +2,9 @@
   {
     "outputFile": "wwwroot/css/Application.css",
     "inputFile": "UI/Application.scss"
+  },
+  {
+    "outputFile": "wwwroot/js/Areas/Stocks/index.es5.js",
+    "inputFile": "wwwroot/js/Areas/Stocks/index.js"
   }
 ]

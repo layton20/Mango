@@ -3,7 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Mango.WEB</title>
+    <title>@ViewData["Title"]</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="~/resource/icons/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/resource/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/resource/icons/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icons/favicon/site.webmanifest">
+
     <partial name="Imports/Links/_External" />
     <partial name="Imports/Links/_Internal" />
 </head>
@@ -14,7 +20,22 @@
         @RenderBody()
     </main>
 
+    <div id="modalRoot" class="modal fade in" tabindex="-1" role="dialog">
+        <div id="modalDialog" class="modal-dialog" role="document">
+        </div>
+    </div>
+
+    @if (ViewData["SuccessMessage"] != null)
+    {
+        <partial name="Components/_SuccessToast" model="@ViewData["SuccessMessage"].ToString()" />
+    }
+    @if (ViewData["ErrorMessage"] != null)
+    {
+        <partial name="Components/_ErrorToast" model="@ViewData["ErrorMessage"].ToString()" />
+    }
+
     <partial name="Main/_Footer" />
+
     <partial name="Imports/Scripts/_External" />
     <partial name="Imports/Scripts/_Internal" />
 

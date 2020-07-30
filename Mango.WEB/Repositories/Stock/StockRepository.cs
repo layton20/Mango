@@ -32,7 +32,7 @@ namespace Mango.WEB.Repositories.Stock
             return _Added ? stock : null;
         }
 
-        public async Task<bool> DeleteAsync(Guid stockUID)
+        public async Task<bool> DeleteAsync(Guid stockUID, Guid loggedInUserUID)
         {
             if (stockUID == Guid.Empty)
             {
@@ -41,7 +41,7 @@ namespace Mango.WEB.Repositories.Stock
 
             StockEntity _Stock = await __Context.Stocks.FirstOrDefaultAsync(x => x.UID == stockUID);
 
-            if (_Stock == null)
+            if (_Stock == null || (_Stock.UserUID != loggedInUserUID && loggedInUserUID != Guid.Empty))
             {
                 return false;
             }
@@ -51,9 +51,9 @@ namespace Mango.WEB.Repositories.Stock
             return await __Context.SaveChangesAsync() > 0;
         }
 
-        public async Task<IList<StockEntity>> GetAsync(StockType filter = StockType.Unknown)
+        public async Task<IList<StockEntity>> GetAsync(StockType filter = StockType.General)
         {
-            if (filter == StockType.Unknown)
+            if (filter == StockType.General)
             {
                 return await __Context.Stocks?.ToListAsync() ?? Enumerable.Empty<StockEntity>().ToList();
             }
@@ -66,7 +66,17 @@ namespace Mango.WEB.Repositories.Stock
             return await __Context.Stocks.FirstOrDefaultAsync(x => x.UID == stockUID);
         }
 
-        public async Task<bool> UpdateAsync(Guid stockUID, StockEntity updatedStock)
+        public async Task<IList<StockEntity>> GetByUserAsync(Guid userUID, StockType filter = StockType.General)
+        {
+            if (filter == StockType.General)
+            {
+                return await __Context.Stocks?.Where(x => x.UserUID == userUID).ToListAsync() ?? Enumerable.Empty<StockEntity>().ToList();
+            }
+
+            return await __Context.Stocks.Where(x => x.StockType == filter && x.UserUID == userUID)?.ToListAsync() ?? Enumerable.Empty<StockEntity>().ToList();
+        }
+
+        public async Task<bool> UpdateAsync(Guid stockUID, StockEntity updatedStock, Guid loggedInUserUID)
         {
             if (stockUID == Guid.Empty || updatedStock.UID != stockUID)
             {
@@ -75,12 +85,17 @@ namespace Mango.WEB.Repositories.Stock
 
             StockEntity _StockEntity = await __Context.Stocks.FirstOrDefaultAsync(x => x.UID == stockUID);
 
-            if (_StockEntity == null)
+            if (_StockEntity == null || (_StockEntity.UserUID != loggedInUserUID && loggedInUserUID != Guid.Empty))
             {
                 return false;
             }
 
-            _StockEntity = updatedStock;
+            _StockEntity.Name = updatedStock.Name;
+            _StockEntity.Description = updatedStock.Description;
+            _StockEntity.Quantity = updatedStock.Quantity;
+            _StockEntity.StockType = updatedStock.StockType;
+            _StockEntity.AmendedTimestamp = DateTime.Now;
+
             return await __Context.SaveChangesAsync() > 0;
         }
     }

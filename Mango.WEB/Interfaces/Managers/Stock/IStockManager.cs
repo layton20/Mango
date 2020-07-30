@@ -9,8 +9,9 @@ namespace Mango.WEB.Interfaces.Managers.Stock
     public interface IStockManager
     {
         Task<StockResponse> CreateAsync(CreateStockRequest request);
-        Task<BaseResponse> DeleteAsync(UIDRequest request);
+        Task<BaseResponse> DeleteAsync(UserUIDAndUIDRequest request);
         Task<StocksResponse> GetAsync(GetStocksRequest request = null);
+        Task<StocksResponse> GetByUserAsync(GetStocksByUserRequest request);
         Task<StockResponse> GetAsync(UIDRequest request);
         Task<BaseResponse> UpdateAsync(UpdateStockRequest request);
     }

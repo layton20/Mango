@@ -7,7 +7,7 @@ namespace Mango.WEB.Entities
     {
         public TimestampEntity()
         {
-            DateTime _CurrentTime = new DateTime();
+            DateTime _CurrentTime = DateTime.Now;
             CreatedTimestamp = _CurrentTime;
             AmendedTimestamp = _CurrentTime;
         }

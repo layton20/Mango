@@ -19,6 +19,7 @@ namespace Mango.WEB.Models
 
         // Stock
         public DbSet<StockEntity> Stocks { get; set; }
+        public DbSet<LocationEntity> Locations { get; set; }
 
         // Note
         public DbSet<BookEntity> Books { get; set; }

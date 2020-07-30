@@ -1,9 +1,33 @@
 ﻿@model Mango.WEB.Areas.Stock.Models.Stock.IndexViewModel
 
-@{ 
+@{
+    Layout = "_Layout";
     ViewData["Title"] = "Stock Management";
 }
 
-<div>
-    This is the stock management section
+<div class="container-fluid pt-3 pb-1">
+    <div class="jumbotron text-center text-dark" style="background-color: #8995c4">
+        <h1 class="display-4 font-weight-bold">@ViewData["Title"].</h1>
+        <p class="lead font-weight-normal">Manage, track and keep your stocks organised. Setup notifications of missing or running-low items.</p>
+    </div>
+
+    <div class="jumbotron bg-light pt-4" style="background-color: #2479a6">
+        <div class="d-flex">
+            <h3 class="mr-2">My Kitchens <i id="tooltipKitchens" class="fas fa-question-circle text-muted" data-toggle="tooltip" data-placement="bottom" title="The list of kitchens that you can move stocks into/out of"></i></h3>
+        </div>
+
+        <partial name="../Location/_Locations" model="Model.Kitchens"/>
+    </div>
+
+    <partial name="_UnassignedStocks" model="@Model.UnassignedStocks" />
 </div>
+
+@section Scripts
+{
+    <environment include="Development">
+        <script src="~/js/Areas/Stocks/index.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/Areas/Stocks/index.min.js"></script>
+    </environment>
+}

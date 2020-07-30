@@ -1,0 +1,31 @@
+﻿@model Mango.WEB.Areas.Stock.Models.Stock.DeleteViewModel
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">Delete Stock Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div>You are making an irreversible change to delete a stock item.</div>
+        <div>Deleting this kitchen space will unassign your stock items.</div>
+        <ul class="list-group rounded-0 mt-3">
+            <li class="list-group-item">Name: <span class="font-italic">@Model.Name</span></li>
+            @if (!string.IsNullOrWhiteSpace(Model.Description))
+            {
+                <li class="list-group-item">Description: <span class="font-italic">@Model.Description</span></li>
+            }
+            <li class="list-group-item">Quantity: <span class="font-italic">@Model.Quantity</span></li>
+            <li class="list-group-item">Address: <span class="font-italic">@Model.StockType</span></li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <form id="formDeleteLocation" asp-area="Stock" asp-controller="Stock" asp-action="Delete">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="UID" />
+            <button type="submit" class="btn btn-danger">Yes, I want to delete the stock item</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </form>
+    </div>
+</div>
