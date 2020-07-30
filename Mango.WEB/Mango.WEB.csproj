@@ -35,6 +35,7 @@
     <Folder Include="Repositories\Booking\" />
     <Folder Include="UI\Component\" />
     <Folder Include="wwwroot\resource\data\" />
+    <Folder Include="wwwroot\resource\icons\favicon\" />
   </ItemGroup>
 
   <ItemGroup>

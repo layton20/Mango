@@ -1,0 +1,42 @@
+﻿@model IList<Mango.WEB.Areas.Stock.Models.Location.LocationViewModel>
+
+<div id="kitchens" class="my-2">
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="d-flex flex-wrap align-items-stretch">
+            @foreach (var kitchen in Model)
+            {
+                <div class="shadow-sm card rounded-0 mr-3 mb-3">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center">@(!string.IsNullOrWhiteSpace(kitchen.Name) ? kitchen.Name : "Unnamed kitched")</h5>
+                        <p class="card-text text-center">@(!string.IsNullOrWhiteSpace(kitchen.Description) ? kitchen.Description : "No description")</p>
+                        <hr />
+                        @if (!string.IsNullOrWhiteSpace(kitchen.Floor))
+                        {
+                            <p class="card-text"><strong>Floor: </strong>@kitchen.Floor</p>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(kitchen.Address))
+                        {
+                            <p class="card-text"><strong>Address: </strong>@kitchen.Address</p>
+                        }
+
+                        <div class="d-flex mt-auto">
+                            <a href="#" class="editStocks btn btn-success mr-2">Edit Kitchen Stocks</a>
+                            <a class="editLocation text-white btn btn-secondary mr-2" data-url='@Url.Action("UpdateModal", "Location", new { Area = "Stock" })' data-locationuid="@kitchen.UID" data-toggle="tooltip" data-placement="bottom" title="Edit kitchen details"><i class="fas fa-edit"></i></a>
+                            <a href="#" class="deleteLocation btn btn-outline-danger" data-url='@Url.Action("DeleteModal", "Location", new { Area = "Stock" })' data-locationuid="@kitchen.UID" data-toggle="tooltip" data-placement="bottom" title="Delete kitchen and unassign stocks"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <a class="createLocation add add--interactive border card rounded-0 mb-3 d-flex justify-content-center align-items-center add add--interactive" data-url='@Url.Action("CreateModal", "Location", new { Area = "Stock" })' style="width: 180px; min-height: 180px">
+                <p href="#" class="add__item"><i class="fas fa-plus-square fa-3x"></i></p>
+            </a>
+        </div>
+    }
+    else
+    {
+        <p class="lead">You haven't created any kitchen yet. Create one <a class="createLocation lead" href="#" data-url='@Url.Action("CreateModal", "Location", new { Area = "Stock" })'>here</a>.</p>
+    }
+</div>

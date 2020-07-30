@@ -1,0 +1,40 @@
+﻿@model Mango.WEB.Areas.Stock.Models.Location.EditViewModel
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">Edit Kitchen Space</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form id="formEditLocation" asp-area="Stock" asp-controller="Location" asp-action="Update">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="LocationUID" />
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" type="text" class="form-control" aria-describedby="nameHelp" placeholder="Enter Kitchen Name">
+                <small id="nameHelp" class="form-text text-muted">This is the name of the space you can assign your stocks to.</small>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control" rows="3" placeholder="Enter Description"></textarea>
+                <small id="descriptionHelp" class="form-text text-muted">(Optional) Provide a description for your new kitchen space.</small>
+            </div>
+            <div class="form-group">
+                <label asp-for="Floor"></label>
+                <input asp-for="Floor" type="text" class="form-control" aria-describedby="floorHelp" placeholder="Enter Floor Name">
+                <small id="floorHelp" class="form-text text-muted">(Optional) Your kitchen might be located on a building floor. Provide a floor number here.</small>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address"></label>
+                <input asp-for="Address" type="text" class="form-control" aria-describedby="nameHelp" placeholder="Enter Address">
+                <small id="addressHelp" class="form-text text-muted">(Optional) Your kitchen might be located at a different address. Provide an address here.</small>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Update Kitchen</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

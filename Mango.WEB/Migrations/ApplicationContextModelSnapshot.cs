@@ -110,6 +110,34 @@ namespace Mango.WEB.Migrations
                     b.ToTable("BookNotes");
                 });
 
+            modelBuilder.Entity("Mango.WEB.Entities.Note.DietEntity", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("AmendedTimestamp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedTimestamp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(50);
+
+                    b.Property<Guid>("UID")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Diets");
+                });
+
             modelBuilder.Entity("Mango.WEB.Entities.Note.NoteEntity", b =>
                 {
                     b.Property<int>("ID")
@@ -122,6 +150,14 @@ namespace Mango.WEB.Migrations
                     b.Property<DateTime>("CreatedTimestamp")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(50);
+
                     b.Property<string>("Note")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -132,6 +168,43 @@ namespace Mango.WEB.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Notes");
+                });
+
+            modelBuilder.Entity("Mango.WEB.Entities.Stock.LocationEntity", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("AmendedTimestamp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedTimestamp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Floor")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(50);
+
+                    b.Property<Guid>("UID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("UserUID")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("Mango.WEB.Entities.Stock.StockEntity", b =>
@@ -161,6 +234,9 @@ namespace Mango.WEB.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<Guid>("UID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("UserUID")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ID");
@@ -307,10 +383,12 @@ namespace Mango.WEB.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("TEXT");
@@ -347,10 +425,12 @@ namespace Mango.WEB.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Value")
                         .HasColumnType("TEXT");

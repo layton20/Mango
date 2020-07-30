@@ -42,11 +42,13 @@ namespace Mango.WEB
 
             // Managers
             services.AddScoped<IStockManager, StockManager>();
+            services.AddScoped<ILocationManager, LocationManager>();
             services.AddScoped<INoteManager, NoteManager>();
             services.AddScoped<IDietManager, DietManager>();
 
             // Repositories
             services.AddScoped<IStockRepository, StockRepository>();
+            services.AddScoped<ILocationRepository, LocationRepository>();
             services.AddScoped<INoteRepository, NoteRepository>();
             services.AddScoped<IDietRepository, DietRepository>();
 

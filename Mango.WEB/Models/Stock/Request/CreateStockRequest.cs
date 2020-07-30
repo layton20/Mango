@@ -1,5 +1,6 @@
 ﻿using Mango.WEB.Models.Base.Request;
 using Mango.WEB.Models.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Mango.WEB.Models.Stock.Request
@@ -11,6 +12,8 @@ namespace Mango.WEB.Models.Stock.Request
             Quantity = 0;
         }
 
+        [Required]
+        public Guid UserUID { get; set; }
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }

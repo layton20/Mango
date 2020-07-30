@@ -7,3 +7,31 @@
         font-family: 'Roboto', sans-serif;
     }
 }
+
+.validation-summary-errors {
+    > ul {
+        list-style-type: none;
+        padding-left: 0;
+
+        > li {
+            border-left: 2px solid #d9534f;
+            padding-left: 1em;
+        }
+    }
+}
+
+.add {
+    cursor: pointer;
+    background-color: rgba(0,0,0,.03);
+
+    &--interactive {
+        &:hover {
+            transition-duration: 0.2s;
+            background-color: rgba(0,0,0,.07)
+        }
+    }
+
+    &__item {
+        color: #0275d8;
+    }
+}
